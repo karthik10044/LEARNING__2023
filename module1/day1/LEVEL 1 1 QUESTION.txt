@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int findMaxUsingIfElse(int num1, int num2) {
+    int max;
+    if (num1 > num2) {
+        max = num1;
+    } else {
+        max = num2;
+    }
+    return max;
+}
+
+
+
+int findMaxUsingTernary(int num1, int num2) {
+    int max = (num1 > num2) ? num1 : num2;
+    return max;
+}
+
+int main() {
+    int a = 5;
+    int b = 10;
+    
+    int maxUsingIfElse = findMaxUsingIfElse(a, b);
+    int maxUsingTernary = findMaxUsingTernary(a, b);
+    
+    printf("Max using if-else: %d\n", maxUsingIfElse);
+    printf("Max using ternary operator: %d\n", maxUsingTernary);
+    
+    return 0;
+}
