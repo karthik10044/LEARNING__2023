@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+// Function to swap any type of data
+void swap(void* a, void* b, size_t size) {
+    // Allocate temporary memory
+    void* temp = malloc(size);
+
+    // Copy contents of 'a' to temporary memory
+    memcpy(temp, a, size);
+
+    // Copy contents of 'b' to 'a'
+    memcpy(a, b, size);
+
+    // Copy contents of temporary memory to 'b'
+    memcpy(b, temp, size);
+
+    // Free temporary memory
+    free(temp);
+}
+
+int main() {
+    int a = 5;
+    int b = 10;
+    printf("Before swap: a = %d, b = %d\n", a, b);
+
+    // Swap integers
+    swap(&a, &b, sizeof(int));
+    printf("After swap: a = %d, b = %d\n", a, b);
+
+    float c = 2.5;
+    float d = 7.8;
+    printf("Before swap: c = %f, d = %f\n", c, d);
+
+    // Swap floats
+    swap(&c, &d, sizeof(float));
+    printf("After swap: c = %f, d = %f\n", c, d);
+
+    char e = 'A';
+    char f = 'B';
+    printf("Before swap: e = %c, f = %c\n", e, f);
+
+    // Swap characters
+    swap(&e, &f, sizeof(char));
+    printf("After swap: e = %c, f = %c\n", e, f);
+
+    return 0;
+}
